@@ -1,0 +1,87 @@
+<html>
+    <head>
+        <title> Compte rendu tp8</title>
+        <style>
+            li {
+                color:darkblue;
+                font-size: 30px;
+            }
+            h1 {
+                text-align:center;
+                color: darkgreen;
+                text-decoration: underline blue;
+                font-size: 50px;
+            }
+            body {
+                background-color: lightgoldenrodyellow;
+                }
+        
+        </style>
+    </head>
+    <body>
+        <h1> Manipulation du DOM, Objet Javascript </h1>
+        <ol>
+            <li><i>Copied game files</i></li>
+            <li>The MemoryGame function creates a MemoryGame object as a dictionnary with images and blank as arguments. This will eventually be filled with functions in order to make a full functioning game.</li>
+            <li><i>Wrote code for MemoryGame to store array of images for the front and the back</i><br>
+            <code>
+                    function MemoryGame(images, blank) {
+                        this.images = images;
+                        this.blank = blank;
+                    }
+            </code>
+            <br>
+        Code for the build function:<br>
+        <code>
+            <pre>
+            
+                MemoryGame.prototype.build_card = function build_card(div, card, id) {
+                    div.innerHTML += "&lt;div onclick=\"game.flipcard(" + id + ");\" id=\"" + id + "\"&gt;&lt;img src=" + card['back'] + "&gt;&lt;/div&gt;";
+                }
+                
+            </pre>
+            <pre>     
+                MemoryGame.prototype.build = function build(div) {
+                fischer_yates_shuffle(this.cards);
+                    console.log(this.cards);
+                    for(i in this.cards) {
+                      this.build_card(div, this.cards[i], this.cards[i]['index']);
+                    }
+                }
+            </pre>   
+        </code>
+        </li>
+        <li>
+            The shuffle cards function returns an array of numbers with the same number repeated. ex [1,1,2,2,3,3...]
+        </li>
+        <li>
+            <i>modified code to have pairs of cards</i>
+        </li>
+        <li>
+            <i>Modified code to put cards on screen</i>
+        </li>
+        <li>
+            To see which card the user clicked on, an extra array will be created and the code for each card will be modified so that when onclick is called, it triggers the flipcard function whch stores the card in an Array(2) which can then be used for comparaison (see code for reference)
+        </li>
+        <li>
+            See functions flipcard and set_card_front.
+        </li>
+        <li>
+            See functions compare and cards_are_same.
+        </li>
+        <li>
+            I don't get it...
+        </li>
+        <li>
+            <pre>
+                    if(!this.compare(this.cards_being_flipped)) {
+                        setTimeout(function reflipcards() {game.set_card_back(card_1);game.set_card_back(card_2);}, 500);
+            </pre>
+            This allows for a comparaison of both cards on screen and if those cards are different (ie compare returned false), 500ms are given before the cards are set to their back (or blank)
+        </li>
+        <li>
+            See function fischer_yates_shuffle and <a href="https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle">wikipedia</a> to see how the algorithm works but basically it's just like putting all the cards down on the table and switching them around. Not your Vegas shuffling style but rather your 5 year old go fish kind.
+        </li>
+        </ol>
+    </body>
+</html>
