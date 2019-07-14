@@ -1,8 +1,62 @@
-h1 {
-    color:
-}
-
 body {
     background-attachment: fixed;
-    background-image: url('')
+    background-image: url('background.jpg');
+}
+
+
+h1 {
+    color:darkblue;
+    text-align: center;
+    font-variant: small-caps;
+    border: 1px lightgreen solid;
+    background-color:rgb(221, 246, 253);
+}
+
+.gamesdiv {
+    background-color:rgb(221, 246, 253); /*Must be replaced with gamercat or another game related image*/
+    border: 1px lightgreen solid;
+    
+}
+h2 {
+    color:green;
+    text-align: center;
+    font-family: cursive;
+    margin:-5px;
+    text-decoration: underline;
+    text-decoration-color: pink;
+}
+
+button {
+    border: 2px yellow solid;
+    background-color: rgba(0, 0, 0, 0.2);
+    margin: 9px;
+    border-radius:5%;
+}
+
+button:hover {
+    border: 3px black solid;
+    background-color: yellow;
+}
+
+::selection {
+    background-color:darkred;
+    color:lightgreen;
+}
+
+.movepika {
+    position:relative;
+}
+
+.pikachusprite {
+    position:absolute;
+}
+
+.fancy {
+    font-family:Cambria;
+    font-size: 25px;
+    color:#a37545;
+}
+
+h2:hover {
+    color:blue;
 }
