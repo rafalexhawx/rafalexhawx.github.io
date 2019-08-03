@@ -46,7 +46,9 @@ function draw_dot(x, y) {
 });
 */
 
-canvas.addEventListener("touchstart", function(event) {
-    Navigator.vibrate();
-});
+var button = document.getElementById("testbutton");
+
+button.onclick = function() {
+    Navigator.vibrate(500);
+}
 
