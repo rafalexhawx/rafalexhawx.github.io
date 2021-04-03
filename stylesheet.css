@@ -13,7 +13,7 @@ h1 {
 }
 
 .gamesdiv {
-    background-color:rgb(221, 246, 253); /*Must be replaced with gamercat or another game related image*/
+    background-color:rgb(221, 246, 253); 
     border: 1px lightgreen solid;
     
 }
