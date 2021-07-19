@@ -1,0 +1,74 @@
+body {
+    background-color: lightgreen;
+}
+
+::first-letter {
+    text-transform: capitalize;
+    color:violet;
+    font-weight:bolder;
+}
+
+p {
+    color: red;
+    font-size: 250%;
+}
+
+h1 {
+    text-align: center;
+    font-size: 500%;
+    color:brown;
+    border:2px outset coral;
+    background-color: lightcyan;
+}
+
+table, tr, td {
+    border: 2px blueviolet solid;
+    border-collapse: collapse;
+}
+
+.important_span {
+    font-style: italic;
+    background-color: aqua;
+}
+
+.first-class {
+    font-size: 100%;
+}
+
+.second-class {
+    font-size: 100%;
+    color:blue;
+}
+
+.third-class {
+    font-size: 100%;
+    color:green;
+}
+
+h2.third-class {
+    color: blueviolet;
+}
+
+.pikachu {
+    width: 40%;
+    float:left;
+    border: 1px black dotted;
+    padding: 2%;
+    margin: 2.5%;
+}
+
+.pikachu-div {
+    overflow:hidden;
+    width:100%;
+    background-image: url('background.jpg');
+    background-size: 100% 100%;
+}
+
+.pikachu:hover {
+    opacity: 50%;
+}
+
+::selection {
+    background-color: cornflowerblue;
+    color:yellow;
+}

@@ -1,0 +1,6 @@
+Click, double click, drag and mouse over
+
+
+Animations
+Keyboard events
+Mouse events

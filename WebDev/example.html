@@ -1,0 +1,59 @@
+<html>
+    <head>
+    <!--<link rel="stylesheet" href="style.css">-->
+    <link rel="shortcut icon" href="bongo.jpg" type="image/jpg">
+    <!--<script type="text/javascript" src="script.js">intro();</script>-->
+    <title> The example page </title>
+    </head>
+    <header>
+        <h1>Welcome to the example page</h1>
+    </header>
+    <body>
+        <p onclick="disappear(this)">This is a paragraph</p><br>
+        <div class="pikachu-div">
+        <img src="piachu.png" alt="pikachu image" width="50%" class="pikachu">
+        <img src="piachu.png" alt="pikachu image" width="50%" class="pikachu">
+    </div>
+        <hr style="border-top:5px blue dotted">
+        <center>
+            <video width="50%" poster="cookies.jpg" id="cookies-video" controls muted>
+                <source src="Microwave Sugar Cookie _ Em’s Kitchen.mp4" type="video/mp4">
+                Your web browser does not support videos
+            </video>
+            <hr style="border-top: 5px green dotted;width:50%;">
+            <iframe width="50%" height="25%" src="example.html"></iframe>
+        </center>
+        <hr>
+        <a href="https://www.youtube.com/watch?v=hBP-NzOadL0"><img src="bongo.jpg" width="25%"></a><br>
+        <table>
+            <tr><td>Top left corner of table</td><td>Top right corner of table</td></tr>
+            <tr><td>Bottom left corner of table</td><td>Bottom right corner of table</td></tr>
+        </table>
+        <ol>
+            <li>Tomatoes</li>
+            <li>Bread</li>
+            <li>Cheese</li>
+        </ol>
+        <span class="important_span">This is important text</span> 
+        <pre>
+          1<sup>st</sup><br>
+          C<sub>12</sub>H<sub>22</sub>O<sub>11</sub> <br>
+        </pre>
+          <hr>
+        <p class="first-class">First class</p>  
+        <p class="second-class">Second class</p>
+        <p class="third-class">Third class</p>
+        <h2 class="third-class">Third class h2</h2>
+        <hr>
+        <p id="element_to_change">Change me</p>
+        <script type="text/javascript">
+        var element = document.getElementById("element_to_change");
+        element.style.border = "2px red solid";
+        document.write("Hello from javascript");
+        </script>
+    </body>
+    <footer>
+        Made by Alex Robic
+    </footer>
+    
+</html>
