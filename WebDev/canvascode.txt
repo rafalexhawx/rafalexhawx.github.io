@@ -1,0 +1,5 @@
+<canvas id='mycanvas' height='600' width='600' style='border: 2px green solid'></canvas>
+    <script>
+        var canvas = document.getElementById("mycanvas");
+        var context = canvas.getContext("2d");
+    </script>
