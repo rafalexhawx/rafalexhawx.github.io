@@ -1,0 +1,152 @@
+<html>
+    <head>
+    <title>Javascript introduction</title>
+    </head>
+    <style>
+        #my_paragraph {
+            margin: 50%;
+        }
+    </style>
+    <script>
+        function playsound() {
+            var audio_player = new Audio('verynice.mp3');
+            audio_player.play();
+        }
+
+        function spamed() {
+            setInterval(playsound, 1500);
+        }
+    </script>
+    <body>
+
+
+<canvas id='mycanvas' height='600' width='600' style='border: 2px green solid'></canvas>
+<script type="text/javascript">
+
+var canvas = document.getElementById("mycanvas");
+var context = canvas.getContext("2d");
+var playing = true;
+var game_ongoing = true;
+var board = [
+    [' ', ' ', ' '],
+    [' ', ' ', ' '],
+    [' ', ' ', ' ']
+]
+
+function clear() {
+    context.fillStyle = 'white';
+    context.fillRect(0,0,600,600);
+}
+
+function draw_grid() {
+    context.strokeStyle = 'black';
+    context.beginPath();
+    context.moveTo(200, 0);
+    context.lineTo(200, 600);
+    context.moveTo(400, 0);
+    context.lineTo(400, 600);
+    context.moveTo(0, 0);
+    context.moveTo(0, 200);
+    context.lineTo(600, 200);
+    context.moveTo(0, 400);
+    context.lineTo(600, 400);
+    context.stroke();
+}
+
+function draw_letters() {
+    context.beginPath();
+    console.log(board);
+    context.fillStyle = "black";
+    context.font = "200px Georgia";
+    for(var i = 0; i < 3; i++) {
+        for(var j = 0; j < 3; j++) {
+            context.fillText(board[j][i], i*200, j*200 + 200);
+        }
+    }
+    context.stroke();
+}
+
+function checkline(line) {
+    return (line[0] == line[1] && line[1] == line[2] && line[0] == line[2]) ? line[0] : ' '; 
+}
+
+function check_lines() {
+    for(var i = 0; i < 3; i++) {
+        if(checkline(board[i]) != ' ') {
+            return checkline(board[i]);
+        }
+    }
+    return ' ';
+}
+
+function check_columns() {
+    var c = 0;
+    for(var i = 0; i < 3; i++) {
+        if(board[c][i] == board[c+1][i] && board[c][i] == board[c+2][i] && board[c+1][i] == board[c+2][i] && board[c][i] != ' ') {
+            return board[c][i];
+        }
+    }
+
+    return ' ';
+}
+
+function check_diagonals() {
+    if(board[0][0] == board[1][1] && board[2][2] == board[1][1] && board[0][0] == board[2][2] && board[1][1] != ' ') {
+        return board[0][0];
+    }
+    if(board[0][2] == board[1][1] && board[2][0] == board[1][1] && board[0][2] == board[2][0] && board[1][1] != ' ') {
+        return board[0][2];
+    }
+    return ' ';
+    
+}
+
+function checkboard() {
+    if(check_lines() == ' ' && check_columns() == ' ' && check_diagonals() == ' ') {
+        console.log("No winners for now");
+    } else if(check_lines() != ' ') {
+        document.write(check_lines() + " won the game");
+        game_ongoing = false;
+    } else if(check_columns() != ' ') {
+        document.write(check_columns() + " won the game");
+        game_ongoing = false;
+    }  else if(check_diagonals() != ' ') {
+        document.write(check_diagonals() + " won the game");
+        game_ongoing = false;
+    }
+
+
+}
+
+function getmousePosition(event) {
+    console.log(event.clientX, event.clientY);
+    var x_pos = Math.floor((event.clientX / 600) * 3);
+    var y_pos = Math.floor((event.clientY / 600) * 3);
+    console.log(x_pos, y_pos);
+    if(board[y_pos][x_pos] == ' ' && game_ongoing) {
+        board[y_pos][x_pos] = playing ? 'X' : 'O';
+        playing = !playing;
+    }
+
+    
+    clear();
+    draw_grid();
+    draw_letters();
+    checkboard();
+    console.log(check_diagonals());
+    if(!game_ongoing) {
+        //Draw the refresh button here
+        document.write("<br><a href='javascriptClass.html'><button>Play again</button></a>");
+    }
+}
+setTimeout(console.log('t'), 5000);
+canvas.addEventListener("click", getmousePosition);
+
+clear();
+
+draw_grid();
+
+
+</script>
+    </body>
+</html>

@@ -1,0 +1,81 @@
+<html>
+    <canvas height='500' width='500' id='mycanvas'></canvas>
+<script type="text/javascript">
+function clear() {
+    context.fillStyle = "white";
+    context.fillRect(0,0,1000,1000);
+}
+
+function radian(a) {
+    var rad = Math.PI/180;
+    return rad * a;
+}
+
+function drawSeconds(i, unit) {
+    var radius = unit;
+    context.beginPath();
+    context.moveTo(unit, unit);
+    context.strokeStyle = "blue";
+    context.lineTo(radius*Math.cos(radian(i*6) - Math.PI/2)+unit, radius*Math.sin(radian(i*6) - Math.PI/2)+unit);
+    context.stroke(); 
+}
+
+
+function drawMinutes(i, unit) {
+    var radius = unit * 0.8;
+    context.beginPath();
+    context.moveTo(unit, unit);
+    context.strokeStyle = "red";
+    context.lineTo((radius*Math.cos(radian(i*6) - Math.PI/2)+unit), (radius*Math.sin(radian(i*6) - Math.PI/2)+unit));
+    context.stroke(); 
+}
+
+function drawHours(i, unit) {
+    i = i * 5;
+    var radius = unit * 0.5;
+    context.beginPath();
+    context.moveTo(unit, unit);
+    context.strokeStyle = "green";
+    context.lineTo((radius*Math.cos(radian(i*6) - Math.PI/2)+unit), (radius*Math.sin(radian(i*6) - Math.PI/2)+unit));
+    context.stroke(); 
+}
+function drawClock() {
+    var unit = canvas.getAttribute('height') / 2;
+    var radius = unit;
+    
+    clear();
+    context.beginPath();
+    context.strokeStyle = "black";
+    context.arc(unit, unit, unit, 0, Math.PI*2);
+    context.stroke();
+    var s = new Date().getSeconds();
+    var m = new Date().getMinutes();
+    var h = new Date().getHours() % 12;
+    drawSeconds(s, unit);
+    drawMinutes(m, unit);
+    drawHours(h, unit);
+    //console.log(h,m,s);
+    context.beginPath();
+    context.strokeStyle = "black";
+    context.font = "25px Georgia";
+    context.fillStyle = "yellow";
+    
+    var time_string = (h == 0 ? 12 : h) + ":" + m + ":" + s;
+
+    context.fillText(time_string, 25, (unit*2)-25);
+    context.strokeText(time_string, 25, (unit*2)-25);
+
+
+    
+     
+}
+
+
+var canvas = document.getElementById("mycanvas");
+var context = canvas.getContext("2d");
+setInterval(drawClock, 50);
+
+
+
+</script>
+</html>
